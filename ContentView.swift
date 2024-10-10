@@ -30,7 +30,7 @@ struct ContentView: View {
                 }
             }
             .background(Color(UIColor.systemGroupedBackground))
-            .navigationTitle("MyCapital")
+            .navigationTitle("Assets")
             .navigationBarItems(trailing: addNewAssetButton)
             .sheet(isPresented: $viewModel.isPresentingAddNewAsset) { // Открываем модальное окно
                 AddAssetView(categories: $viewModel.categories) // Окно добавления актива
@@ -54,10 +54,36 @@ struct ContentView: View {
                 .frame(width: 250, height: 250)
                 .padding()
         } else {
-            Text("No assets yet")
-                .font(.headline)
-                .foregroundColor(.gray)
-                .padding()
+            VStack {
+                Image("Tolstoy")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 160, height: 160)
+                Text("True freedom is the ability to control one’s desires")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .padding(.bottom, 8)
+                    .multilineTextAlignment(.center)
+                
+                Text("Lev Nikolayevich Tolstoy")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+                    .padding(.bottom, 16)
+                
+                Button(action: {
+                    viewModel.isPresentingAddNewAsset = true // Открываем окно добавления нового актива
+                }) {
+                    Text("Add asset")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
+                .padding(.horizontal, 16)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
 
@@ -117,7 +143,6 @@ struct ContentView: View {
         .padding()
         .background(Color.white)
         .cornerRadius(12)
-        .shadow(radius: 2)
         .padding(.vertical, 4)
     }
 }

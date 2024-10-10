@@ -2,7 +2,7 @@
 //  AddNewAssetView.swift
 //  MyCapitalApp
 //
-//  Created by Никита Алимпиев on 21.09.2024.
+//  Created by Никита Алимпиев on 10.10.2024.
 //
 
 import SwiftUI

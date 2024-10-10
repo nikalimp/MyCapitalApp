@@ -16,7 +16,7 @@ struct MainTabView: View {
             }
             .tabItem {
                 Image(systemName: "house")
-                Text("Home")
+                Text("Assets")
             }
 
             NavigationView {
