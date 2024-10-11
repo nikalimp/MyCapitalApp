@@ -9,13 +9,10 @@ import SwiftUI
 import CoreData
 
 @main
-struct MyCapitalAppApp: App {
-    let persistenceController = PersistenceController.shared
-
+struct MyCapitalApp: App {
     var body: some Scene {
-        WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-        }
-    }
-}
+          WindowGroup {
+              MainTabView()
+          }
+      }
+  }

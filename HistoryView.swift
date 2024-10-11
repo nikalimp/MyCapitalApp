@@ -34,7 +34,6 @@ struct HistoryView: View {
             .padding()
             .background(Color.white)
             .cornerRadius(12)
-            .shadow(radius: 4)
 
             VStack {
                 Text("Growth (%)")
@@ -48,7 +47,6 @@ struct HistoryView: View {
             .padding()
             .background(Color.white)
             .cornerRadius(12)
-            .shadow(radius: 4)
         }
         .padding(.horizontal)
     }
