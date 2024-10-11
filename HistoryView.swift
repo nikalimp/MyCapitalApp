@@ -8,47 +8,26 @@
 import SwiftUI
 
 struct HistoryView: View {
-    @State private var totalAssets: Double = 50000 // Пример значения
-    
     var body: some View {
-        VStack(alignment: .center, spacing: 20) {
-            analyticsBlock()
-            Text("History of changes will be displayed here.")
-                .font(.largeTitle)
-                .padding()
+        ScrollView {
+            VStack(alignment: .leading, spacing: 16) {
+                // Пример контента - замените на ваши элементы
+                ForEach(0..<20, id: \.self) { index in
+                    HStack {
+                        Text("History Item \(index + 1)")
+                            .font(.headline)
+                            .padding()
+                        Spacer()
+                    }
+                    .background(Color.white)
+                    .cornerRadius(8)
+                }
+            }
+            .padding()
         }
+        .background(Color.gray.opacity(0.1)) // Устанавливаем серый фон
+        .edgesIgnoringSafeArea(.bottom) // Опционально, чтобы фон растягивался до краёв экрана
         .navigationTitle("History")
-    }
-
-    @ViewBuilder
-    private func analyticsBlock() -> some View {
-        HStack(alignment: .top, spacing: 20) {
-            VStack {
-                Text("Total Assets")
-                    .font(.headline)
-                Text("$\(Int(totalAssets))")
-                    .font(.largeTitle)
-                    .bold()
-            }
-            .frame(maxWidth: .infinity)
-            .padding()
-            .background(Color.white)
-            .cornerRadius(12)
-
-            VStack {
-                Text("Growth (%)")
-                    .font(.headline)
-                Text("5.0%")
-                    .font(.largeTitle)
-                    .bold()
-                    .foregroundColor(.green)
-            }
-            .frame(maxWidth: .infinity)
-            .padding()
-            .background(Color.white)
-            .cornerRadius(12)
-        }
-        .padding(.horizontal)
     }
 }
 
